@@ -1,0 +1,17 @@
+# Optional: a FREE instance, not a paid service. No database is required.
+services:
+  - type: web
+    name: clipsave
+    runtime: docker
+    plan: free
+    numInstances: 1
+    healthCheckPath: /login
+    envVars:
+      - key: APP_PASSWORD_HASH
+        sync: false
+      - key: SESSION_SECRET
+        sync: false
+      - key: DOWNLOAD_DIR
+        value: /tmp/clipsave-downloads
+      - key: EPHEMERAL_DOWNLOADS
+        value: "true"
