@@ -50,7 +50,7 @@ export function run(command: string, args: string[], options: {job?: InternalJob
   });
 }
 export async function health() {
-  if(process.env.VERCEL === '1') return {ok:false,mode:'vercel',checks:[],message:'Vercel can host the password-protected interface, but cannot run this downloader. Deploy the complete app on a Node host with yt-dlp and FFmpeg.'};
+  if(process.env.VERCEL === '1') return {ok:false,mode:'vercel',checks:[],message:'Vercel can host the interface, but cannot run this downloader. Deploy the complete app on a Node host with yt-dlp and FFmpeg.'};
   const checks = await Promise.all(['yt-dlp','ffmpeg','ffprobe'].map(async tool => {
     try { await run(tool,[tool === 'yt-dlp' ? '--version' : '-version'],{timeout:30000}); return {tool,ok:true}; } catch {return {tool,ok:false};}
   }));

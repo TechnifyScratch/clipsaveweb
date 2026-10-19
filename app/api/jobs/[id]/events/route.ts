@@ -1,9 +1,7 @@
 import { guard,getJob,publicJob } from '@/lib/server';
-import { authenticated } from '@/lib/auth';
 export const runtime='nodejs';
 export const dynamic='force-dynamic';
 export async function GET(req:Request,{params}:{params:Promise<{id:string}>}) {
-  if(!authenticated(req)) return new Response("Please sign in to ClipSave.",{status:401});
   try {guard(req);} catch {return new Response('Local requests only.',{status:403});}
   const job=getJob((await params).id);
   if(!job) return new Response('Download not found.',{status:404});

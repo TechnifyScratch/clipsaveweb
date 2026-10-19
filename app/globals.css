@@ -254,14 +254,5 @@ footer p { margin: 0; }
 @media (max-width: 500px) { .header-actions { gap: 10px; } .header-actions .private-note { font-size: 0; gap: 0; } .theme-label { display: none; } .theme-toggle { width: 32px; min-width: 32px; padding: 0; } }
 @media (prefers-reduced-motion: reduce) { ::view-transition-group(root), ::view-transition-old(root), ::view-transition-new(root) { animation: none !important; } }
 
-.login-shell { display: flex; flex-direction: column; }
-.login-main { flex: 1; padding: 55px 18px 90px; }
-.login-main .intro { padding-top: 35px; }
-.login-main h1 { font-size: 60px; letter-spacing: -3px; }
-.login-card { max-width: 400px; }
-.login-card form > label { display: block; font-size: 12px; margin-bottom: 10px; color: var(--muted); }
-.login-card .download-button { margin: 20px 0 24px; }
-@media (max-width: 500px) { .login-main { padding: 24px 0 60px; } .login-main h1 { font-size: 46px; } }
-.signout-button { width: 32px; min-width: 32px; padding: 0; }
 a.primary { display: inline-flex; align-items: center; justify-content: center; gap: 8px; text-decoration: none; }
 .success-actions { flex-wrap: wrap; }

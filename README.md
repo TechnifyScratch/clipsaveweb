@@ -2,9 +2,9 @@
 
 A local macOS utility that turns permitted YouTube videos into MP4s for class submissions. Next.js, TypeScript, Tailwind, Lucide, yt-dlp, and FFmpeg. No accounts, database, hosted backend, or paid APIs.
 
-## Password protection and cloud hosting
+## Cloud hosting
 
-Run `npm run password:setup` yourself to choose your private password, then restart the app. Environment files are ignored by Git. See [DEPLOYMENT.md](DEPLOYMENT.md) for the password gate, optional free Render hosting, and the Vercel/Supabase processing limitations. Vercel can host the protected interface; it cannot run the complete downloader as currently designed.
+There is no password or sign-in step. See [DEPLOYMENT.md](DEPLOYMENT.md) for optional free Render hosting and the Vercel/Supabase processing limitations. Vercel hosts the interface only; it cannot run the complete downloader as currently designed.
 
 ## Install and launch
 
@@ -15,7 +15,6 @@ Requires macOS, Node.js **22+** with npm, and current yt-dlp + FFmpeg (including
 3. In this directory, run:
 
 ```sh
-npm run password:setup
 npm run launch
 ```
 

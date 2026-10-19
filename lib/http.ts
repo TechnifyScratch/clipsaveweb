@@ -1,8 +1,6 @@
 import { guard } from './server';
 import { friendlyError } from './core';
-import { authenticated } from './auth';
 export async function api(req:Request,fn:()=>Promise<unknown>|unknown) {
-  if(!authenticated(req)) return Response.json({error:"Please sign in to ClipSave."},{status:401});
   if(process.env.VERCEL==='1' && new URL(req.url).pathname!=='/api/health') return Response.json({error:'This deployment needs a video processor. See DEPLOYMENT.md for free hosting options.'},{status:503});
   if(process.env.VERCEL==='1') {const result=await fn();return Response.json(result);}
   try {guard(req);const result=await fn();return result instanceof Response?result:Response.json(result);}

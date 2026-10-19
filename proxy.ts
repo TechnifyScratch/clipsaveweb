@@ -1,14 +1,8 @@
-import { NextRequest, NextResponse } from 'next/server';
-import { authenticated } from './lib/auth';
+import { NextResponse } from 'next/server';
 
-export function proxy(req: NextRequest) {
-  const pathname = req.nextUrl.pathname;
-  const isPublic = pathname === '/login' || pathname === '/api/auth/login';
-  const response = isPublic || authenticated(req)
-    ? NextResponse.next()
-    : pathname.startsWith('/api/')
-      ? NextResponse.json({ error: 'Please sign in to ClipSave.' }, { status: 401 })
-      : NextResponse.redirect(new URL('/login', req.url));
+// No sign-in gate. Retain privacy and browser security headers.
+export function proxy() {
+  const response = NextResponse.next();
   response.headers.set('Cache-Control', 'private, no-store');
   response.headers.set('X-Robots-Tag', 'noindex, nofollow');
   response.headers.set('X-Content-Type-Options', 'nosniff');
